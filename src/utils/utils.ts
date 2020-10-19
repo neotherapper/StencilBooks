@@ -1,3 +1,3 @@
-export function format(first: string, middle: string, last: string): string {
-  return (first || '') + (middle ? ` ${middle}` : '') + (last ? ` ${last}` : '');
+export function formatBookHeader(place: string, title: string, rate: number) {
+  return `<h1>${place}. ${title} <span class="rate">(${rate} / 10)<span></h1>`;
 }

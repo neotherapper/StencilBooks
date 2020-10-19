@@ -1,0 +1,13 @@
+:host {
+  display: block;
+}
+
+h1 {
+  color: #a97622;
+}
+
+.rate {
+  font-size: 0.7em;
+  font-weight: normal;
+  color:#292929;
+}

@@ -6,56 +6,40 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
-    interface MyComponent {
+    interface BookListItem {
         /**
-          * The first name
+          * The bookData object
          */
-        "first": string;
-        /**
-          * The last name
-         */
-        "last": string;
-        /**
-          * The middle name
-         */
-        "middle": string;
+        "book": string;
     }
 }
 declare global {
-    interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
+    interface HTMLBookListItemElement extends Components.BookListItem, HTMLStencilElement {
     }
-    var HTMLMyComponentElement: {
-        prototype: HTMLMyComponentElement;
-        new (): HTMLMyComponentElement;
+    var HTMLBookListItemElement: {
+        prototype: HTMLBookListItemElement;
+        new (): HTMLBookListItemElement;
     };
     interface HTMLElementTagNameMap {
-        "my-component": HTMLMyComponentElement;
+        "book-list-item": HTMLBookListItemElement;
     }
 }
 declare namespace LocalJSX {
-    interface MyComponent {
+    interface BookListItem {
         /**
-          * The first name
+          * The bookData object
          */
-        "first"?: string;
-        /**
-          * The last name
-         */
-        "last"?: string;
-        /**
-          * The middle name
-         */
-        "middle"?: string;
+        "book"?: string;
     }
     interface IntrinsicElements {
-        "my-component": MyComponent;
+        "book-list-item": BookListItem;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "book-list-item": LocalJSX.BookListItem & JSXBase.HTMLAttributes<HTMLBookListItemElement>;
         }
     }
 }
