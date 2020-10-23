@@ -4,14 +4,17 @@ const bookList  = [
   {
     title: "In Search of Lost Time",
     rate: 9.9,
+    synopsis: "Angelos is learning Typescript",
   },
   {
     title: "Don Quixote",
     rate: 9.8,
+    synopsis: "Angelos is learning stencil",
   },
   {
     title: "Moby Dick",
     rate: 9.4,
+    synopsis: "Angelos is learning web components",
   }
 ];
 
@@ -29,6 +32,7 @@ export class BookList {
               rating={book.rate.toString()}
               title={book.title}
               position={index.toString()}
+              synopsis={book.synopsis}
             />
           )
         })

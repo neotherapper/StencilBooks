@@ -12,18 +12,16 @@ export namespace Components {
     interface BookList {
     }
     interface BookListItem {
-        /**
-          * The bookData object
-         */
         "position": string;
         /**
           * The bookData object
          */
         "rating": string;
-        /**
-          * The bookData object
-         */
+        "synopsis": string;
         "title": string;
+    }
+    interface BookSynopsis {
+        "synopsis": string;
     }
 }
 declare global {
@@ -45,10 +43,17 @@ declare global {
         prototype: HTMLBookListItemElement;
         new (): HTMLBookListItemElement;
     };
+    interface HTMLBookSynopsisElement extends Components.BookSynopsis, HTMLStencilElement {
+    }
+    var HTMLBookSynopsisElement: {
+        prototype: HTMLBookSynopsisElement;
+        new (): HTMLBookSynopsisElement;
+    };
     interface HTMLElementTagNameMap {
         "book-image": HTMLBookImageElement;
         "book-list": HTMLBookListElement;
         "book-list-item": HTMLBookListItemElement;
+        "book-synopsis": HTMLBookSynopsisElement;
     }
 }
 declare namespace LocalJSX {
@@ -58,23 +63,22 @@ declare namespace LocalJSX {
     interface BookList {
     }
     interface BookListItem {
-        /**
-          * The bookData object
-         */
         "position"?: string;
         /**
           * The bookData object
          */
         "rating"?: string;
-        /**
-          * The bookData object
-         */
+        "synopsis"?: string;
         "title"?: string;
+    }
+    interface BookSynopsis {
+        "synopsis"?: string;
     }
     interface IntrinsicElements {
         "book-image": BookImage;
         "book-list": BookList;
         "book-list-item": BookListItem;
+        "book-synopsis": BookSynopsis;
     }
 }
 export { LocalJSX as JSX };
@@ -84,6 +88,7 @@ declare module "@stencil/core" {
             "book-image": LocalJSX.BookImage & JSXBase.HTMLAttributes<HTMLBookImageElement>;
             "book-list": LocalJSX.BookList & JSXBase.HTMLAttributes<HTMLBookListElement>;
             "book-list-item": LocalJSX.BookListItem & JSXBase.HTMLAttributes<HTMLBookListItemElement>;
+            "book-synopsis": LocalJSX.BookSynopsis & JSXBase.HTMLAttributes<HTMLBookSynopsisElement>;
         }
     }
 }

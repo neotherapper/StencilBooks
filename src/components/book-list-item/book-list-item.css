@@ -11,3 +11,7 @@ h1 {
   font-weight: normal;
   color:#292929;
 }
+
+li {
+  list-style: none;
+}

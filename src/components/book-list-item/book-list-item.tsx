@@ -16,11 +16,19 @@ export class BookListItem {
 
   @Prop() position: string;
 
+  @Prop() synopsis: string;
+
+
+
   private getHeader(): string {
     return formatBookHeader(this.position, this.title, Number(this.rating) );
   }
 
   render() {
-    return <header innerHTML={this.getHeader()}></header>;
+    return <li>
+        <header innerHTML={this.getHeader()}></header>
+        <book-synopsis synopsis={this.synopsis}></book-synopsis>
+      </li>
+
   }
 }
