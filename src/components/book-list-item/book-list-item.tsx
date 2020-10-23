@@ -1,11 +1,5 @@
-import { Component, Prop, h, Watch } from '@stencil/core';
+import { Component, Prop, h } from '@stencil/core';
 import { formatBookHeader } from '../../utils/utils';
-
-export interface BookData {
-  rate: string;
-  title: string;
-  place: string;
-}
 
 @Component({
   tag: 'book-list-item',
@@ -13,26 +7,17 @@ export interface BookData {
   shadow: true,
 })
 export class BookListItem {
-  bookData: BookData;
-
   /**
    * The bookData object
    */
-  @Prop() book: string;
+  @Prop() rating: string;
 
-  @Watch('book')
-  dataDidChangeHandler(newValue: string) {
-    if (newValue) {
-      this.bookData = JSON.parse(newValue);
-    }
-  }
+  @Prop() title: string;
 
-  componentWillLoad() {
-    this.dataDidChangeHandler(this.book);
-  }
+  @Prop() position: string;
 
   private getHeader(): string {
-    return formatBookHeader(this.bookData.place, this.bookData.title, Number(this.bookData.rate) );
+    return formatBookHeader(this.position, this.title, Number(this.rating) );
   }
 
   render() {
