@@ -1,0 +1,14 @@
+:host {
+  display: block;
+}
+
+img {
+ max-width: 7em;
+ width: 320px;
+ padding: 10px;
+ border: 1px;
+ margin-left: 34em;
+ border-radius: 1.3em;
+ }
+
+

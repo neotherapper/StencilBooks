@@ -6,14 +6,39 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
+    interface BookImage {
+        "imageUrl": string;
+    }
+    interface BookList {
+    }
     interface BookListItem {
         /**
           * The bookData object
          */
-        "book": string;
+        "position": string;
+        /**
+          * The bookData object
+         */
+        "rating": string;
+        /**
+          * The bookData object
+         */
+        "title": string;
     }
 }
 declare global {
+    interface HTMLBookImageElement extends Components.BookImage, HTMLStencilElement {
+    }
+    var HTMLBookImageElement: {
+        prototype: HTMLBookImageElement;
+        new (): HTMLBookImageElement;
+    };
+    interface HTMLBookListElement extends Components.BookList, HTMLStencilElement {
+    }
+    var HTMLBookListElement: {
+        prototype: HTMLBookListElement;
+        new (): HTMLBookListElement;
+    };
     interface HTMLBookListItemElement extends Components.BookListItem, HTMLStencilElement {
     }
     var HTMLBookListItemElement: {
@@ -21,17 +46,34 @@ declare global {
         new (): HTMLBookListItemElement;
     };
     interface HTMLElementTagNameMap {
+        "book-image": HTMLBookImageElement;
+        "book-list": HTMLBookListElement;
         "book-list-item": HTMLBookListItemElement;
     }
 }
 declare namespace LocalJSX {
+    interface BookImage {
+        "imageUrl"?: string;
+    }
+    interface BookList {
+    }
     interface BookListItem {
         /**
           * The bookData object
          */
-        "book"?: string;
+        "position"?: string;
+        /**
+          * The bookData object
+         */
+        "rating"?: string;
+        /**
+          * The bookData object
+         */
+        "title"?: string;
     }
     interface IntrinsicElements {
+        "book-image": BookImage;
+        "book-list": BookList;
         "book-list-item": BookListItem;
     }
 }
@@ -39,6 +81,8 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "book-image": LocalJSX.BookImage & JSXBase.HTMLAttributes<HTMLBookImageElement>;
+            "book-list": LocalJSX.BookList & JSXBase.HTMLAttributes<HTMLBookListElement>;
             "book-list-item": LocalJSX.BookListItem & JSXBase.HTMLAttributes<HTMLBookListItemElement>;
         }
     }
