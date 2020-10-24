@@ -1,4 +1,4 @@
-import { Component, Host, h, Prop } from '@stencil/core';
+import { Component, h, Prop } from '@stencil/core';
 
 @Component({
   tag: 'book-synopsis',
@@ -10,6 +10,6 @@ export class BookSynopsis {
   @Prop() synopsis: string;
 
   render() {
-    return <p innerHTML={this.synopsis}></p>;
+    return <p class="book_synopsis"innerHTML={this.synopsis}></p>;
   }
 }
