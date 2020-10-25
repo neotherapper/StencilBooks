@@ -1,0 +1,9 @@
+:host {
+  display: block;
+}
+
+.book_synopsis {
+  color: #292929;
+  font-size: 1.25em;
+  margin-left: 40px;
+}
